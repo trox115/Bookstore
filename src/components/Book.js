@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = (book) => (
+const Book = book => (
   <tr>
     <td>book.id</td>
     <td>book.name</td>
