@@ -6,7 +6,7 @@ const books = (state = null, action) => {
       return state;
     default:
       return state;
-      
+
   }
 };
 export default books;
