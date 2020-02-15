@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Book from './Book'
 
 
 
@@ -7,7 +8,7 @@ const BooksList = () => {
   const library = useSelector(state => state.books);
   const books = [];
   library.forEach(book =>
-    books.push(<tr><td>{book.id}</td><td>{book.title}</td><td>{book.category}</td></tr>)
+    books.push(<Book id={book.id} name={book.title} category={book.category} />)
   )
   return(
   <div>
