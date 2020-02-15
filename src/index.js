@@ -7,8 +7,9 @@ import {Provider} from 'react-redux'
 
 const library = {
   books: [
-  {id:1, title:"The subtile art of not giving a f*uck", category:"Sci-fi",},
-  {id:2, title:"The subtile art of not giving a f*uck", category:"Sci-fi",}
+  {id:1, title:"Peppa pig adventures", category:"Kids",},
+  {id:2, title:"21 Lessons for XXI century", category:"ACTION",},
+  {id:3, title:"How to make friends", category:"LEARNING",}
 ]
 }
 
