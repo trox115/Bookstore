@@ -8,6 +8,6 @@ export const create = (book) => {
 export const remove = (book) => {
     return {
         type: 'REMOVE_BOOK'
-        book,
+        book
     };
 }

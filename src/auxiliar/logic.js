@@ -1,5 +1,5 @@
-function arrayRemove (arr,index){
-  return arr.filter(function(ele){
-       return ele != index;
-   });
+function arrayRemove(arr, index) {
+  return arr.filter((ele) => ele != index);
 }
+
+export default arrayRemove;
