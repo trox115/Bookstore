@@ -3,10 +3,10 @@ import React from 'react';
 const BookForm = () => (
   <form>
     <label htmlFor="title">Title</label>
-    <input type="text" name="title" />
+    <input type="text" name="title" id="title"/>
     <br />
     <label htmlFor="category">Category</label>
-    <select id="category">
+    <select id="category" name="category">
       <option value="Action">Action</option>
       <option value="Biography">Biography</option>
       <option value="Horror">Horror</option>
