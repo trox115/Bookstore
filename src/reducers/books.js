@@ -1,9 +1,13 @@
+import arrayRemove from '../auxiliar/logic';
+
+
 const books = (state = null, action) => {
   switch (action.type) {
     case 'CREATE_BOOK':
-      return state;
+      return [...state, action.book];
     case 'REMOVE_BOOK':
-      return state;
+      const index=state.findIndex(action.book);
+      return arrayRemove(state,index);
     default:
       return state;
 
