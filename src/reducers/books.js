@@ -5,10 +5,10 @@ const books = (state = null, action) => {
   switch (action.type) {
     case 'CREATE_BOOK':
       return [...state, action.book];
-    case 'REMOVE_BOOK':{
+    case 'REMOVE_BOOK': {
       const index = state.findIndex(action.book);
       return arrayRemove(state, index);
-      }
+    }
     default:
       return state;
   }
