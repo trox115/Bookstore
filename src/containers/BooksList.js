@@ -6,7 +6,9 @@ import Book from '../components/Book';
 const BooksList = () => {
   const library = useSelector(state => state.books);
   const books = [];
-  library.forEach(book => books.push(<Book id={book.id} name={book.title} category={book.category} />));
+  library.forEach(book =>
+    books.push(<Book id={book.id} name={book.title} category={book.category}
+      />));
   return (
     <div>
       <table>

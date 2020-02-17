@@ -6,7 +6,8 @@ const books = (state = null, action) => {
     case 'CREATE_BOOK':
       return [...state, action.book];
     case 'REMOVE_BOOK':
-      const index = state.findIndex(action.book);
+      let index = -1
+      index = state.findIndex(action.book);
       return arrayRemove(state, index);
     default:
       return state;

@@ -13,7 +13,7 @@ const library = {
   ],
 };
 
-const store = createStore(allReducers, library, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(allReducers, library);
 
 ReactDOM.render(
   <Provider store={store}>
