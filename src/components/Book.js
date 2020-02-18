@@ -15,9 +15,9 @@ function Book({ book }) {
 // An object taking on a particular shape
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.integer,
     name: PropTypes.string,
     category: PropTypes.string,
-  }),
+  }).isRequired,
 };
 export default Book;
