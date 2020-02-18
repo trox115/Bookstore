@@ -15,7 +15,7 @@ function Book({ book }) {
 // An object taking on a particular shape
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.integer,
+    id: PropTypes.number,
     name: PropTypes.string,
     category: PropTypes.string,
   }).isRequired,
