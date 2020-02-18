@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Book from '../components/Book';
 
 const BooksList = ({ books }) => {
-  const library = books.map(book => <Book id={book.id} book={book} />);
+  const library = books.map(book => <Book key={book.id} id={book.id} book={book} />);
   return (
     <div>
       <table>
