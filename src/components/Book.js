@@ -11,4 +11,7 @@ function Book({ book }) {
   );
 }
 
+Book.propTypes = {
+  book: PropTypes.instanceOf(Array).isRequired,
+};
 export default Book;
