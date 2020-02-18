@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Book = book => (
-  <tr>
-    <td>{book.id}</td>
-    <td>{book.name}</td>
-    <td>{book.category}</td>
-  </tr>
-);
+function Book({ book }) {
+  const { id, category, name } = book;
+  return (
+    <tr>
+      <td>{id}</td>
+      <td>{name}</td>
+      <td>{category}</td>
+    </tr>
+  );
+}
 
 export default Book;

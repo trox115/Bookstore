@@ -7,9 +7,9 @@ import allReducers from './reducers';
 
 const library = {
   books: [
-    { id: 1, title: 'Peppa pig adventures', category: 'Kids' },
-    { id: 2, title: '21 Lessons for XXI century', category: 'ACTION' },
-    { id: 3, title: 'How to make friends', category: 'LEARNING' },
+    { id: 1, name: 'Peppa pig adventures', category: 'Kids' },
+    { id: 2, name: '21 Lessons for XXI century', category: 'ACTION' },
+    { id: 3, name: 'How to make friends', category: 'LEARNING' },
   ],
 };
 
