@@ -13,11 +13,11 @@ function Book({ book }) {
 }
 
 // An object taking on a particular shape
-Book.PropTypes = {
+Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-  }).isRequired,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    category: PropTypes.string,
+  }),
 };
 export default Book;
