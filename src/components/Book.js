@@ -12,7 +12,10 @@ function Book({ book }) {
   );
 }
 
-Book.propTypes = {
-  book: PropTypes.instanceOf(Array).isRequired,
-};
+// An object taking on a particular shape
+PropTypes.shape({
+  id: PropTypes.integer,
+  name: PropTypes.string,
+  category: PropTypes.string,
+});
 export default Book;
