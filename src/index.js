@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import allReducers from './reducers';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const library = {
+  books: [
+    { id: 1, name: 'Peppa pig adventures', category: 'Kids' },
+    { id: 2, name: '21 Lessons for XXI century', category: 'ACTION' },
+    { id: 3, name: 'How to make friends', category: 'LEARNING' },
+  ],
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store = createStore(allReducers, library);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
