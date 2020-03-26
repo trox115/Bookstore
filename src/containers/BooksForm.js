@@ -20,8 +20,8 @@ class BookForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('the movie title is ', this.state.title);
-    console.log('the movie category is ', this.state.category);
+    createBookAction(event);
+    this.setState(initialState);
   }
 
   handleChange(event) {
