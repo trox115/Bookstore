@@ -21,6 +21,7 @@ class BookForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('the movie title is ', this.state.title);
+    console.log('the movie category is ', this.state.category);
   }
 
   handleChange(event) {
@@ -43,12 +44,11 @@ class BookForm extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <p> The title is :{title} </p>
           <br />
         </label>
         <label htmlFor="category">
           Category
-          <select id="category" required>
+          <select name="category" id="category" required onChange={this.handleChange}>
             {category.map(category => (
               <option key={category} value={category}>
                 {category}
