@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as bookactions from '../actions';
+import PropTypes from 'prop-types';
 
 function randomNumber() {
   return Math.floor(Math.random() * 101);
@@ -14,21 +17,16 @@ class BookForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-    createBookAction(event);
-    this.setState(initialState);
-  }
-
-  handleChange(event) {
+    this.props.dispatch(bookactions.create(this.state));
+  };
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
     });
-  }
+  };
 
   render() {
     const { title } = this.state;
@@ -39,7 +37,7 @@ class BookForm extends React.Component {
           Title
           <input
             type="text"
-            name="title"
+            name="name"
             id="title"
             value={this.state.value}
             onChange={this.handleChange}
@@ -62,4 +60,17 @@ class BookForm extends React.Component {
   }
 }
 
-export default BookForm;
+BookForm.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    books: state.books,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  //mapDispatchToProps,
+)(BookForm);
