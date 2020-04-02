@@ -8,7 +8,7 @@ function randomNumber() {
 }
 
 const initialState = {
-  title: '',
+  name: '',
   category: 'Action',
   id: randomNumber(),
 };
@@ -20,6 +20,9 @@ class BookForm extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault();
+    this.setState({
+      id: randomNumber(),
+    });
     this.props.dispatch(bookactions.create(this.state));
   };
   handleChange = event => {
@@ -30,23 +33,36 @@ class BookForm extends React.Component {
 
   render() {
     const { title } = this.state;
-    const category = ['Action', 'Biography', 'Horror', 'History', 'Kids', 'Learning', 'Sci-fi'];
+    const category = [
+      'Action',
+      'Biography',
+      'Horror',
+      'History',
+      'Kids',
+      'Learning',
+      'Sci-fi',
+    ];
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="title">
+        <label htmlFor='title'>
           Title
           <input
-            type="text"
-            name="name"
-            id="title"
+            type='text'
+            name='name'
+            id='title'
             value={this.state.value}
             onChange={this.handleChange}
           />
           <br />
         </label>
-        <label htmlFor="category">
+        <label htmlFor='category'>
           Category
-          <select name="category" id="category" required onChange={this.handleChange}>
+          <select
+            name='category'
+            id='category'
+            required
+            onChange={this.handleChange}
+          >
             {category.map(category => (
               <option key={category} value={category}>
                 {category}
@@ -54,7 +70,7 @@ class BookForm extends React.Component {
             ))}
           </select>
         </label>
-        <button type="submit">Submit</button>
+        <button type='submit'>Submit</button>
       </form>
     );
   }
