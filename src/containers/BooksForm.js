@@ -32,7 +32,6 @@ class BookForm extends React.Component {
   };
 
   render() {
-    const { title } = this.state;
     const category = [
       'Action',
       'Biography',
