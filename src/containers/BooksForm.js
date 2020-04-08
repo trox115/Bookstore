@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as bookactions from '../actions';
+import PropTypes from 'prop-types';
 
 function randomNumber() {
   return Math.floor(Math.random() * 101);
@@ -27,7 +28,7 @@ class BookForm extends React.Component {
   };
 
   handleSubmit = event => {
-    const create = this.props;
+    const { create } = this.props;
     event.preventDefault();
     this.setState({
       id: randomNumber(),
@@ -79,6 +80,10 @@ class BookForm extends React.Component {
     );
   }
 }
+
+BookForm.propTypes = {
+  create: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state) {
   return {
