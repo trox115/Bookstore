@@ -77,6 +77,7 @@ class BookForm extends React.Component {
 
 BookForm.propTypes = {
   create: PropTypes.func.isRequired,
+  books: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state) {
