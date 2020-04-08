@@ -8,18 +8,38 @@ import { remove, filterChange } from '../actions';
 class BooksList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.state = {
+      filter: 'All',
+    };
   }
 
+  handleFilter = event => {
+    const { filterChange } = this.props;
+    this.setState({
+      filter: event.target.value,
+    });
+    filterChange(this.state);
+  };
+
   render() {
-    console.log(this.state);
     const { books, remove } = this.props;
-    const library = books.map(book => (
-      <Book key={book.name} id={book.id} book={book} remove={remove} />
-    ));
+    const { filter } = this.state;
+    let library = [];
+    console.log(filter);
+    if (filter === 'All') {
+      library = books.map(book => (
+        <Book key={book.name} id={book.id} book={book} remove={remove} />
+      ));
+    } else {
+      const auxiliar = books.filter(book => book.category === filter);
+      library = auxiliar.map(book => (
+        <Book key={book.name} id={book.id} book={book} remove={remove} />
+      ));
+    }
     return (
       <div>
-        <FilterCategory />
+        <FilterCategory handleFilter={this.handleFilter} />
         <table>
           <tr>
             <th>ID</th>
@@ -35,6 +55,12 @@ class BooksList extends React.Component {
 }
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.filter,
+});
+
+const mapDispatchToProps = dispatch => ({
+  filterChange: filter => dispatch(filterChange(filter)),
+  remove: books => dispatch(remove(books)),
 });
 
 BooksList.propTypes = {
@@ -43,4 +69,4 @@ BooksList.propTypes = {
   filter: PropTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps, { remove })(BooksList);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);

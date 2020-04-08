@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function FilterCategory() {
+function FilterCategory({ handleFilter }) {
   const filters = [];
   const categories = [
     'All',
@@ -15,7 +16,11 @@ function FilterCategory() {
   categories.map(category =>
     filters.push(<option value={category}>{category}</option>),
   );
-  return <select>{filters}</select>;
+  return <select onChange={handleFilter}>{filters}</select>;
 }
+
+FilterCategory.propTypes = {
+  handleFilter: PropTypes.func.isRequired,
+};
 
 export default FilterCategory;
