@@ -2,25 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
+import FilterCategory from '../components/FilterCategory';
 import { remove, filterChange } from '../actions';
-
-const initialState = {
-  filter: 'All',
-};
 
 class BooksList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = {};
   }
 
   render() {
+    console.log(this.state);
     const { books, remove } = this.props;
     const library = books.map(book => (
       <Book key={book.name} id={book.id} book={book} remove={remove} />
     ));
     return (
       <div>
+        <FilterCategory />
         <table>
           <tr>
             <th>ID</th>
