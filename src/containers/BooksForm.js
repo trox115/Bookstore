@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as bookactions from '../actions';
 import PropTypes from 'prop-types';
+import * as bookactions from '../actions';
 
 function randomNumber() {
   return Math.floor(Math.random() * 101);
@@ -17,19 +17,23 @@ class BookForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit = event => {
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
     this.setState({
       id: randomNumber(),
     });
     this.props.create(this.state);
-  };
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  }
 
   render() {
     const category = [
@@ -43,22 +47,22 @@ class BookForm extends React.Component {
     ];
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor='title'>
+        <label htmlFor="title">
           Title
           <input
-            type='text'
-            name='name'
-            id='title'
+            type="text"
+            name="name"
+            id="title"
             value={this.state.value}
             onChange={this.handleChange}
           />
           <br />
         </label>
-        <label htmlFor='category'>
+        <label htmlFor="category">
           Category
           <select
-            name='category'
-            id='category'
+            name="category"
+            id="category"
             required
             onChange={this.handleChange}
           >
@@ -69,7 +73,7 @@ class BookForm extends React.Component {
             ))}
           </select>
         </label>
-        <button type='submit'>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
