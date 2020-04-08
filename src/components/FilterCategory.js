@@ -13,9 +13,7 @@ function FilterCategory({ handleFilter }) {
     'Learning',
     'Sci-fi',
   ];
-  categories.map(category =>
-    filters.push(<option value={category}>{category}</option>),
-  );
+  categories.map(category => filters.push(<option value={category}>{category}</option>));
   return <select onChange={handleFilter}>{filters}</select>;
 }
 

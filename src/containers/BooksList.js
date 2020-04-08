@@ -26,7 +26,6 @@ class BooksList extends React.Component {
     const { books, remove } = this.props;
     const { filter } = this.state;
     let library = [];
-    console.log(filter);
     if (filter === 'All') {
       library = books.map(book => (
         <Book key={book.name} id={book.id} book={book} remove={remove} />
@@ -67,6 +66,7 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
   remove: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
+  filterChange: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
