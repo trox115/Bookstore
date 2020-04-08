@@ -11,6 +11,7 @@ const library = {
     { id: 2, name: '21 Lessons for XXI century', category: 'ACTION' },
     { id: 3, name: 'How to make friends', category: 'LEARNING' },
   ],
+  filter: 'All',
 };
 
 const store = createStore(allReducers, library);

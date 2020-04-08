@@ -2,27 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { remove } from '../actions';
+import { remove, filterChange } from '../actions';
 
-function BooksList({ books, remove }) {
-  const library = books.map(book => (
-    <Book key={book.name} id={book.id} book={book} remove={remove} />
-  ));
-  return (
-    <div>
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th> Remove </th>
-        </tr>
-        {library}
-      </table>
-    </div>
-  );
+const initialState = {
+  filter: 'All',
+};
+
+class BooksList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  render() {
+    const { books, remove } = this.props;
+    const library = books.map(book => (
+      <Book key={book.name} id={book.id} book={book} remove={remove} />
+    ));
+    return (
+      <div>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th> Remove </th>
+          </tr>
+          {library}
+        </table>
+      </div>
+    );
+  }
 }
-
 const mapStateToProps = state => ({
   books: state.books,
 });
@@ -30,6 +41,7 @@ const mapStateToProps = state => ({
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
   remove: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, { remove })(BooksList);
