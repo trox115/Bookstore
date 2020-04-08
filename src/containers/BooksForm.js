@@ -23,7 +23,7 @@ class BookForm extends React.Component {
     this.setState({
       id: randomNumber(),
     });
-    this.props.dispatch(bookactions.create(this.state));
+    this.props.create(this.state);
   };
   handleChange = event => {
     this.setState({
@@ -76,7 +76,7 @@ class BookForm extends React.Component {
 }
 
 BookForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  create: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -85,7 +85,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  //mapDispatchToProps,
-)(BookForm);
+function mapDispatchToProps(dispatch) {
+  return {
+    create: book => dispatch(bookactions.create(book)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookForm);
