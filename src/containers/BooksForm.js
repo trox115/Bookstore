@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as bookactions from '../actions';
 import PropTypes from 'prop-types';
+import * as bookactions from '../actions';
 
 function randomNumber() {
   return Math.floor(Math.random() * 101);
