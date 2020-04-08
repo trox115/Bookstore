@@ -12,7 +12,7 @@ function Book({ book, remove }) {
       <td>{name}</td>
       <td>{category}</td>
       <td>
-        <button type='button' onClick={handleClick}>
+        <button type="button" onClick={handleClick}>
           Remove Book
         </button>
       </td>
@@ -27,5 +27,6 @@ Book.propTypes = {
     name: PropTypes.string,
     category: PropTypes.string,
   }).isRequired,
+  remove: PropTypes.func.isRequired,
 };
 export default Book;
