@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import cat from '../category';
 import * as bookactions from '../actions';
 
 function randomNumber() {
@@ -17,8 +18,6 @@ class BookForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = event => {
@@ -37,15 +36,7 @@ class BookForm extends React.Component {
   };
 
   render() {
-    const category = [
-      'Action',
-      'Biography',
-      'Horror',
-      'History',
-      'Kids',
-      'Learning',
-      'Sci-fi',
-    ];
+    const category = cat;
     const { value } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
