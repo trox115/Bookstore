@@ -5,8 +5,15 @@ import cat from '../category';
 function FilterCategory({ handleFilter }) {
   const filters = [];
   const categories = cat;
-  filters.push(<option value="All">All</option>);
-  categories.map(category => filters.push(<option value={category}>{category}</option>));
+  filters.push(
+    <option value="" disabled selected>
+      Categories
+    </option>,
+    <option value="All">All</option>,
+  );
+  categories.map(category =>
+    filters.push(<option value={category}>{category}</option>),
+  );
   return <select onChange={handleFilter}>{filters}</select>;
 }
 

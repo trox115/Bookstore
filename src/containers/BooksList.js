@@ -1,9 +1,54 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Container from 'react-bootstrap/Container';
 import Book from '../components/Book';
 import FilterCategory from '../components/FilterCategory';
 import { remove, filterChange } from '../actions';
+
+const Header = styled.header`
+  background: #ffffff;
+  width: 100%;
+  height: 95px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+
+  border-bottom: solid 1px #e8e8e8;
+
+  .cont {
+    line-height: 95px;
+    display: flex;
+    align-items: center;
+    h1 {
+      width: 240px;
+      height: 37px;
+      font-family: Montserrat, 'sans-serif';
+      font-size: 30px;
+      font-weight: bold;
+      color: #0290ff;
+    }
+    p {
+      font-size: 16px;
+      color: #121212;
+      letter-spacing: 1.9px;
+      margin-left: 3%;
+    }
+    select {
+      font-size: 13px;
+      opacity: 0.5;
+      background: #ffffff;
+      color: #121212;
+      letter-spacing: 1.9px;
+      border: none;
+      margin-left: 3%;
+      margin-bottom: 15px;
+
+      option {
+        color: #0290ff;
+      }
+    }
+  }
+`;
 
 class BooksList extends React.Component {
   constructor(props) {
@@ -37,18 +82,16 @@ class BooksList extends React.Component {
       ));
     }
     return (
-      <div>
-        <FilterCategory handleFilter={this.handleFilter} />
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th> Remove </th>
-          </tr>
-          {library}
-        </table>
-      </div>
+      <>
+        <Header>
+          <Container className="cont">
+            <h1 className="logo">Bookstore CMS</h1>
+            <p>Books</p>
+            <FilterCategory handleFilter={this.handleFilter} />
+          </Container>
+        </Header>
+        <Container>{library}</Container>
+      </>
     );
   }
 }
