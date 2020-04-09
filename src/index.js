@@ -8,9 +8,10 @@ import allReducers from './reducers';
 const library = {
   books: [
     { id: 1, name: 'Peppa pig adventures', category: 'Kids' },
-    { id: 2, name: '21 Lessons for XXI century', category: 'ACTION' },
-    { id: 3, name: 'How to make friends', category: 'LEARNING' },
+    { id: 2, name: '21 Lessons for XXI century', category: 'Action' },
+    { id: 3, name: 'How to make friends', category: 'Learning' },
   ],
+  filter: 'All',
 };
 
 const store = createStore(allReducers, library);
