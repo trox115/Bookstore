@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import '../auxiliar/overidesvg.css';
-import { Alert } from 'react-bootstrap';
 
 const Card = styled.div`
   border-radius: 4px;
@@ -155,7 +154,10 @@ function Book({ book, remove }) {
     remove(book);
   };
   const customalert = () => {
-    alert('Not implemented yet');
+    const customMessage=('Not implemented yet');
+
+    const alert =customMessage;
+    alert();
   };
   return (
     <Row className="align-items-center">
