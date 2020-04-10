@@ -152,9 +152,9 @@ function Book({ book, remove }) {
     remove(book);
   };
   return (
-    <Row>
-      <Card>
-        <Col md="6" sd="12">
+    <Card>
+      <Row>
+        <Col md="6" sm="8">
           <BookInfo>
             <p>{category}</p>
 
@@ -183,7 +183,7 @@ function Book({ book, remove }) {
             </button>
           </BookInfo>
         </Col>
-        <Col md="3">
+        <Col md="3" sm="4">
           <ProgressInfo>
             <CircularProgressbar
               value={id}
@@ -205,7 +205,7 @@ function Book({ book, remove }) {
             </div>
           </ProgressInfo>
         </Col>
-        <Col md="3">
+        <Col md="3" sm="12">
           <UpdateInfo>
             <div className="infobut">
               <h6>Current Chapter</h6>
@@ -219,8 +219,8 @@ function Book({ book, remove }) {
             </div>
           </UpdateInfo>
         </Col>
-      </Card>
-    </Row>
+      </Row>
+    </Card>
   );
 }
 
