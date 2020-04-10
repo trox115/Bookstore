@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createGlobalStyle } from 'styled-components';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import allReducers from './reducers';
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    background:#f5f6fa;
+  }
+`;
 const library = {
   books: [
     { id: 1, name: 'Peppa pig adventures', category: 'Kids' },
@@ -18,6 +24,7 @@ const store = createStore(allReducers, library);
 
 ReactDOM.render(
   <Provider store={store}>
+    <GlobalStyle />
     <App />
   </Provider>,
   document.getElementById('root'),
