@@ -11,9 +11,7 @@ function FilterCategory({ handleFilter }) {
     </option>,
     <option value="All">All</option>,
   );
-  categories.map(category =>
-    filters.push(<option value={category}>{category}</option>),
-  );
+  categories.map(category => filters.push(<option value={category}>{category}</option>));
   return <select onChange={handleFilter}>{filters}</select>;
 }
 
