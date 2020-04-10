@@ -8,7 +8,7 @@ import '../auxiliar/overidesvg.css';
 
 const Card = styled.div`
   width: 100%;
-  height: 170px;
+  min-height: 170px;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background: #ffffff;
@@ -25,6 +25,7 @@ const UpdateInfo = styled.div`
 
   .infobut {
     display: block;
+    line-height: 1px;
 
     h6 {
       width: 126px;
@@ -46,7 +47,10 @@ const UpdateInfo = styled.div`
 
     button {
       border-radius: 3px;
+      width: 184px;
+      height: 33px;
       background-color: #0290ff;
+      border: none;
       font-family: RobotoSlab;
       font-size: 13px;
       font-weight: 300;
@@ -150,7 +154,7 @@ function Book({ book, remove }) {
   return (
     <Row>
       <Card>
-        <Col md="6">
+        <Col md="6" sd="12">
           <BookInfo>
             <p>{category}</p>
 
@@ -208,7 +212,6 @@ function Book({ book, remove }) {
               <p>Chapter: {id}</p>
               <button
                 type="button"
-                className="last"
                 onClick={() => alert('Not implemented yet')}
               >
                 Update Progress
