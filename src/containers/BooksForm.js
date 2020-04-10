@@ -81,6 +81,10 @@ class BookForm extends React.Component {
   handleSubmit = event => {
     const { create } = this.props;
     event.preventDefault();
+    const { name } = this.state;
+    if (name === '') {
+      return false;
+    }
     this.setState({
       id: randomNumber(),
     });
