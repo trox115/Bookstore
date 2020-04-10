@@ -154,9 +154,8 @@ function Book({ book, remove }) {
     remove(book);
   };
   const customalert = () => {
-    const customMessage=('Not implemented yet');
-
-    const alert =customMessage;
+    const customMessage = ('Not implemented yet');
+    const alert = customMessage;
     alert();
   };
   return (
@@ -202,8 +201,9 @@ function Book({ book, remove }) {
               />
               <div className="wrap">
                 <p> 
-                  {id}%
-                  </p>
+                  {id}
+                  %
+                </p>
                 <h6>Completed</h6>
               </div>
             </ProgressInfo>
@@ -213,9 +213,9 @@ function Book({ book, remove }) {
               <div className="infobut">
                 <h6>Current Chapter</h6>
                 <p>
-                  Chapter: 
+                  Chapter:
                   {id}
-                  </p>
+                </p>
                 <button type="button" onClick={customalert}>
                   Update Progress
                 </button>
