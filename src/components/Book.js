@@ -7,13 +7,15 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import '../auxiliar/overidesvg.css';
 
 const Card = styled.div`
-  width: 100%;
-  min-height: 170px;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background: #ffffff;
   margin-top: 25px;
-  display: flex;
+  min-height: 170px;
+
+  .full {
+    min-height: 170px;
+  }
 `;
 
 const UpdateInfo = styled.div`
@@ -152,75 +154,77 @@ function Book({ book, remove }) {
     remove(book);
   };
   return (
-    <Card>
-      <Row>
-        <Col md="6" sm="8">
-          <BookInfo>
-            <p>{category}</p>
+    <Row className="align-items-center">
+      <Card className="col-12">
+        <Row className="align-items-center full">
+          <Col md="6" lg="6" sm="8" className="col-6 align-self-center">
+            <BookInfo>
+              <p>{category}</p>
 
-            <h3>{name}</h3>
-            <h6>
-              Book ID(instead of author):
-              {id}
-            </h6>
+              <h3>{name}</h3>
+              <h6>
+                Book ID(instead of author):
+                {id}
+              </h6>
 
-            <button
-              type="button"
-              className="first"
-              onClick={() => alert('Not implemented yet')}
-            >
-              Comments
-            </button>
-            <button type="button" onClick={handleClick}>
-              Remove
-            </button>
-            <button
-              type="button"
-              className="last"
-              onClick={() => alert('Not implemented yet')}
-            >
-              Edit
-            </button>
-          </BookInfo>
-        </Col>
-        <Col md="3" sm="4">
-          <ProgressInfo>
-            <CircularProgressbar
-              value={id}
-              text={`${id}%`}
-              viewBox="0 0 300 300"
-              styles={buildStyles({
-                strokeLinecap: 'butt',
-                textSize: '16px',
-                pathTransitionDuration: 0.5,
-                pathColor: `rgba(62, 152, 199, ${id / 100})`,
-                trailColor: '#d6d6d6',
-                backgroundColor:
-                  'linear-gradient(to bottom, #307bbe, #379cf6);',
-              })}
-            />
-            <div className="wrap">
-              <p> {id}%</p>
-              <h6>Completed</h6>
-            </div>
-          </ProgressInfo>
-        </Col>
-        <Col md="3" sm="12">
-          <UpdateInfo>
-            <div className="infobut">
-              <h6>Current Chapter</h6>
-              <p>Chapter: {id}</p>
               <button
                 type="button"
+                className="first"
                 onClick={() => alert('Not implemented yet')}
               >
-                Update Progress
+                Comments
               </button>
-            </div>
-          </UpdateInfo>
-        </Col>
-      </Row>
-    </Card>
+              <button type="button" onClick={handleClick}>
+                Remove
+              </button>
+              <button
+                type="button"
+                className="last"
+                onClick={() => alert('Not implemented yet')}
+              >
+                Edit
+              </button>
+            </BookInfo>
+          </Col>
+          <Col md="6" lg="3" xl="3" sm="4" className="col-6 align-self-center">
+            <ProgressInfo>
+              <CircularProgressbar
+                value={id}
+                text={`${id}%`}
+                viewBox="0 0 300 300"
+                styles={buildStyles({
+                  strokeLinecap: 'butt',
+                  textSize: '16px',
+                  pathTransitionDuration: 0.5,
+                  pathColor: `rgba(62, 152, 199, ${id / 100})`,
+                  trailColor: '#d6d6d6',
+                  backgroundColor:
+                    'linear-gradient(to bottom, #307bbe, #379cf6);',
+                })}
+              />
+              <div className="wrap">
+                <p> {id}%</p>
+                <h6>Completed</h6>
+              </div>
+            </ProgressInfo>
+          </Col>
+          <Col md="12" lg="2" xl="2" sm="12">
+            <UpdateInfo>
+              <div className="infobut">
+                <h6>Current Chapter</h6>
+                <p>Chapter: {id}</p>
+                <button
+                  type="button"
+                  onClick={() => alert('Not implemented yet')}
+                >
+                  Update Progress
+                </button>
+              </div>
+            </UpdateInfo>
+          </Col>
+        </Row>
+      </Card>
+    </Row>
   );
 }
 

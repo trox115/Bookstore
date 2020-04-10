@@ -26,6 +26,7 @@ const Header = styled.header`
       font-size: 30px;
       font-weight: bold;
       color: #0290ff;
+      margin-left: -14px;
     }
     p {
       font-size: 16px;
