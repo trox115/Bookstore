@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import '../auxiliar/overidesvg.css';
+import { Alert } from 'react-bootstrap';
 
 const Card = styled.div`
   border-radius: 4px;
@@ -153,6 +154,9 @@ function Book({ book, remove }) {
   const handleClick = () => {
     remove(book);
   };
+  const customalert = () => {
+    alert('Not implemented yet');
+  };
   return (
     <Row className="align-items-center">
       <Card className="col-12">
@@ -167,21 +171,13 @@ function Book({ book, remove }) {
                 {id}
               </h6>
 
-              <button
-                type="button"
-                className="first"
-                onClick={() => alert('Not implemented yet')}
-              >
+              <button type="button" className="first" onClick={customalert}>
                 Comments
               </button>
               <button type="button" onClick={handleClick}>
                 Remove
               </button>
-              <button
-                type="button"
-                className="last"
-                onClick={() => alert('Not implemented yet')}
-              >
+              <button type="button" className="last" onClick={customalert}>
                 Edit
               </button>
             </BookInfo>
@@ -203,7 +199,9 @@ function Book({ book, remove }) {
                 })}
               />
               <div className="wrap">
-                <p> {id}%</p>
+                <p> 
+                  {id}%
+                  </p>
                 <h6>Completed</h6>
               </div>
             </ProgressInfo>
@@ -212,11 +210,11 @@ function Book({ book, remove }) {
             <UpdateInfo>
               <div className="infobut">
                 <h6>Current Chapter</h6>
-                <p>Chapter: {id}</p>
-                <button
-                  type="button"
-                  onClick={() => alert('Not implemented yet')}
-                >
+                <p>
+                  Chapter: 
+                  {id}
+                  </p>
+                <button type="button" onClick={customalert}>
                   Update Progress
                 </button>
               </div>
