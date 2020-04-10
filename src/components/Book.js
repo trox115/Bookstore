@@ -200,7 +200,7 @@ function Book({ book, remove }) {
                 })}
               />
               <div className="wrap">
-                <p> 
+                <p>
                   {id}
                   %
                 </p>
