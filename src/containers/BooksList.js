@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Book from '../components/Book';
 import FilterCategory from '../components/FilterCategory';
-import { remove, filterChange } from '../actions';
+import * as bookActions from '../actions';
+import { bindActionCreators } from 'redux';
 
 const Header = styled.header`
   background: #ffffff;
@@ -61,15 +62,23 @@ class BooksList extends React.Component {
   }
 
   handleFilter = event => {
-    const { filterChange } = this.props;
+    const { filterChange } = this.props.actions;
     this.setState({
       filter: event.target.value,
     });
+
     filterChange(this.state);
   };
 
+  componentDidMount() {
+    this.props.actions.loadBooks().catch(error => {
+      alert('algo falhou ' + error);
+    });
+  }
+
   render() {
-    const { books, remove } = this.props;
+    const { books } = this.props;
+    const { remove } = this.props.actions;
     const { filter } = this.state;
     let library = [];
     if (filter === 'All') {
@@ -102,8 +111,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  filterChange: filter => dispatch(filterChange(filter)),
-  remove: books => dispatch(remove(books)),
+  // filterChange: filter => dispatch(filterChange(filter)),
+  // remove: books => dispatch(remove(books)),
+  actions: bindActionCreators(bookActions, dispatch),
 });
 
 BooksList.propTypes = {

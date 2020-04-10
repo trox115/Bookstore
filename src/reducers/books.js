@@ -7,6 +7,9 @@ const books = (state = [], action) => {
 
       return index;
     }
+    case 'LOAD_BOOKS_SUCCESS': {
+      return action.books;
+    }
     default:
       return state;
   }
