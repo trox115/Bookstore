@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
+import { bindActionCreators } from 'redux';
 import Book from '../components/Book';
 import FilterCategory from '../components/FilterCategory';
 import * as bookActions from '../actions';
-import { bindActionCreators } from 'redux';
 
 const Header = styled.header`
   background: #ffffff;
@@ -61,6 +61,13 @@ class BooksList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { loadBooks } = this.props.actions;
+    loadBooks().catch(error => {
+      alert('algo falhou ' + error);
+    });
+  }
+
   handleFilter = event => {
     const { filterChange } = this.props.actions;
     this.setState({
@@ -69,12 +76,6 @@ class BooksList extends React.Component {
 
     filterChange(this.state);
   };
-
-  componentDidMount() {
-    this.props.actions.loadBooks().catch(error => {
-      alert('algo falhou ' + error);
-    });
-  }
 
   render() {
     const { books } = this.props;
@@ -121,6 +122,7 @@ BooksList.propTypes = {
   remove: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
+  loadBooks: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);

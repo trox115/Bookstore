@@ -80,15 +80,13 @@ class BookForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const { create } = this.props;
     const { title } = this.state;
     if (title === '') {
       return false;
     }
-
-    console.log(this.props);
-    this.props.create(this.state).catch(error => {
-      alert('algo falhou ' + error);
-    });
+    create(this.state).catch(error => error);
+    return true;
   };
 
   render() {
