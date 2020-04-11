@@ -7,7 +7,6 @@ export function getBooks() {
 }
 
 export function addBooks(book) {
-  console.log(book);
   return fetch(`${baseUrl}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
