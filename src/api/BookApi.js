@@ -7,7 +7,8 @@ export function getBooks() {
 }
 
 export function addBooks(book) {
-  return fetch(baseUrl, {
+  console.log(book);
+  return fetch(`${baseUrl}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(book),

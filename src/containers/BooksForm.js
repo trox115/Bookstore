@@ -79,16 +79,16 @@ class BookForm extends React.Component {
   };
 
   handleSubmit = event => {
-    const { create } = this.props;
     event.preventDefault();
-    const { name } = this.state;
-    if (name === '') {
+    const { title } = this.state;
+    if (title === '') {
       return false;
     }
-    this.setState({
-      id: randomNumber(),
+
+    console.log(this.props);
+    this.props.create(this.state).catch(error => {
+      alert('algo falhou ' + error);
     });
-    create(this.state);
   };
 
   render() {
@@ -104,7 +104,7 @@ class BookForm extends React.Component {
           <Col md="6">
             <input
               type="text"
-              name="name"
+              name="title"
               id="title"
               placeholder="Book title"
               value={value}

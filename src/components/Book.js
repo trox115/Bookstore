@@ -149,7 +149,7 @@ const BookInfo = styled.div`
 `;
 
 function Book({ book, remove }) {
-  const { id, category, title } = book;
+  const { id,author, category, title } = book;
   const handleClick = () => {
     remove(book);
   };
@@ -168,8 +168,7 @@ function Book({ book, remove }) {
 
               <h3>{title}</h3>
               <h6>
-                Book ID(instead of author):
-                {id}
+                {author}
               </h6>
 
               <button type="button" className="first" onClick={customalert}>
