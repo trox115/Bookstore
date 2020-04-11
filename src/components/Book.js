@@ -149,12 +149,12 @@ const BookInfo = styled.div`
 `;
 
 function Book({ book, remove }) {
-  const { id, category, name } = book;
+  const { id,author, category, title } = book;
   const handleClick = () => {
     remove(book);
   };
   const customalert = () => {
-    const customMessage = ('Not implemented yet');
+    const customMessage = 'Not implemented yet';
     const alert = customMessage;
     alert();
   };
@@ -166,10 +166,9 @@ function Book({ book, remove }) {
             <BookInfo>
               <p>{category}</p>
 
-              <h3>{name}</h3>
+              <h3>{title}</h3>
               <h6>
-                Book ID(instead of author):
-                {id}
+                {author}
               </h6>
 
               <button type="button" className="first" onClick={customalert}>
@@ -200,10 +199,7 @@ function Book({ book, remove }) {
                 })}
               />
               <div className="wrap">
-                <p>
-                  {id}
-                  %
-                </p>
+                <p>{id}%</p>
                 <h6>Completed</h6>
               </div>
             </ProgressInfo>

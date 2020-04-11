@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
+import { bindActionCreators } from 'redux';
 import Book from '../components/Book';
 import FilterCategory from '../components/FilterCategory';
-import { remove, filterChange } from '../actions';
+import * as bookActions from '../actions';
 
 const Header = styled.header`
   background: #ffffff;
@@ -60,16 +61,25 @@ class BooksList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { loadBooks } = this.props.actions;
+    loadBooks().catch(error => {
+      alert('algo falhou ' + error);
+    });
+  }
+
   handleFilter = event => {
-    const { filterChange } = this.props;
+    const { filterChange } = this.props.actions;
     this.setState({
       filter: event.target.value,
     });
+
     filterChange(this.state);
   };
 
   render() {
-    const { books, remove } = this.props;
+    const { books } = this.props;
+    const { remove } = this.props.actions;
     const { filter } = this.state;
     let library = [];
     if (filter === 'All') {
@@ -102,8 +112,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  filterChange: filter => dispatch(filterChange(filter)),
-  remove: books => dispatch(remove(books)),
+  // filterChange: filter => dispatch(filterChange(filter)),
+  // remove: books => dispatch(remove(books)),
+  actions: bindActionCreators(bookActions, dispatch),
 });
 
 BooksList.propTypes = {
@@ -111,6 +122,7 @@ BooksList.propTypes = {
   remove: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
+  loadBooks: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);

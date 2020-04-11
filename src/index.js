@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import App from './components/App';
 import allReducers from './reducers';
 
@@ -20,7 +21,7 @@ const library = {
   filter: 'All',
 };
 
-const store = createStore(allReducers, library);
+const store = createStore(allReducers, library, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
