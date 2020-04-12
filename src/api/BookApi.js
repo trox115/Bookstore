@@ -15,3 +15,20 @@ export function addBooks(book) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function updateBooks(book) {
+  console.log('hey');
+  return fetch(`${baseUrl}/${book.id}`, {
+    method: 'PUT',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(book),
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function deleteBooks(book) {
+  return fetch(`${baseUrl}/${book.id}`, { method: 'DELETE' })
+    .then(' ')
+    .catch(handleError);
+}

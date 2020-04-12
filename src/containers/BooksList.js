@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import { bindActionCreators } from 'redux';
@@ -79,17 +80,17 @@ class BooksList extends React.Component {
 
   render() {
     const { books } = this.props;
-    const { remove } = this.props.actions;
+    const { deleteb } = this.props.actions;
     const { filter } = this.state;
     let library = [];
     if (filter === 'All') {
       library = books.map(book => (
-        <Book key={book.name} id={book.id} book={book} remove={remove} />
+        <Book key={book.name} id={book.id} book={book} remove={deleteb} />
       ));
     } else {
       const auxiliar = books.filter(book => book.category === filter);
       library = auxiliar.map(book => (
-        <Book key={book.name} id={book.id} book={book} remove={remove} />
+        <Book key={book.name} id={book.id} book={book} remove={deleteb} />
       ));
     }
     return (
@@ -102,6 +103,7 @@ class BooksList extends React.Component {
           </Container>
         </Header>
         <Container>{library}</Container>
+        
       </>
     );
   }
@@ -119,7 +121,7 @@ const mapDispatchToProps = dispatch => ({
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
-  remove: PropTypes.func.isRequired,
+  deleteb: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
   loadBooks: PropTypes.func.isRequired,

@@ -40,3 +40,33 @@ export function create(book) {
       });
   };
 }
+
+export function updateBooksSuccess(books) {
+  return { type: 'UPDATE_BOOKS_SUCCESS', books };
+}
+
+export function update(book) {
+  console.log(BooksApi.updateBooks(book));
+
+  return function (dispatch) {
+    console.log(book);
+    return BooksApi.updateBooks(book)
+      .then(books => {
+        dispatch(updateBooksSuccess(books));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}
+
+export function deleteBooksOptimistic(books) {
+  return { type: 'DELETE_BOOKS_OPTIMISTIC', books };
+}
+
+export function deleteb(book) {
+  return function (dispatch) {
+    dispatch(deleteBooksOptimistic(book));
+    return BooksApi.deleteBooks(book);
+  };
+}

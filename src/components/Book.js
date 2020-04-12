@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
@@ -149,7 +150,14 @@ const BookInfo = styled.div`
 `;
 
 function Book({ book, remove }) {
-  const { id,author, category, title } = book;
+  const { id, author, category, title } = book;
+  let { progress, chapter } = book;
+  if (progress === null) {
+    progress = 0;
+  }
+  if (chapter === null) {
+    chapter = 1;
+  }
   const handleClick = () => {
     remove(book);
   };
@@ -167,9 +175,7 @@ function Book({ book, remove }) {
               <p>{category}</p>
 
               <h3>{title}</h3>
-              <h6>
-                {author}
-              </h6>
+              <h6>{author}</h6>
 
               <button type="button" className="first" onClick={customalert}>
                 Comments
@@ -177,29 +183,31 @@ function Book({ book, remove }) {
               <button type="button" onClick={handleClick}>
                 Remove
               </button>
-              <button type="button" className="last" onClick={customalert}>
-                Edit
-              </button>
+              <Link to={'/book/' + book.id}>
+                <button type="button" className="last">
+                  Edit
+                </button>
+              </Link>
             </BookInfo>
           </Col>
           <Col md="6" lg="3" xl="3" sm="4" className="col-6 align-self-center">
             <ProgressInfo>
               <CircularProgressbar
-                value={id}
-                text={`${id}%`}
+                value={progress}
+                text={`${progress}%`}
                 viewBox="0 0 300 300"
                 styles={buildStyles({
                   strokeLinecap: 'butt',
                   textSize: '16px',
                   pathTransitionDuration: 0.5,
-                  pathColor: `rgba(62, 152, 199, ${id / 100})`,
+                  pathColor: `rgba(62, 152, 199, ${progress / 100})`,
                   trailColor: '#d6d6d6',
                   backgroundColor:
                     'linear-gradient(to bottom, #307bbe, #379cf6);',
                 })}
               />
               <div className="wrap">
-                <p>{id}%</p>
+                <p>{progress}%</p>
                 <h6>Completed</h6>
               </div>
             </ProgressInfo>
@@ -210,11 +218,11 @@ function Book({ book, remove }) {
                 <h6>Current Chapter</h6>
                 <p>
                   Chapter:
-                  {id}
+                  {chapter}
                 </p>
-                <button type="button" onClick={customalert}>
-                  Update Progress
-                </button>
+                <Link to={'/progress/' + book.id}>
+                  <button type="button">Update Progress</button>
+                </Link>
               </div>
             </UpdateInfo>
           </Col>

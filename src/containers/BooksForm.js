@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import cat from '../category';
 import * as bookactions from '../actions';
 
@@ -86,48 +87,49 @@ class BookForm extends React.Component {
       return false;
     }
     create(this.state).catch(error => error);
-    return true;
   };
 
   render() {
     const category = cat;
     const { value } = this.state;
     return (
-      <Formul onSubmit={this.handleSubmit}>
-        <Row>
-          <Col md="12" className="first">
-            <h2>Add a new Book</h2>
-          </Col>
+      <Container>
+        <Formul onSubmit={this.handleSubmit}>
+          <Row>
+            <Col md="12" className="first">
+              <h2>Add a new Book</h2>
+            </Col>
 
-          <Col md="6">
-            <input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Book title"
-              value={value}
-              onChange={this.handleChange}
-            />
-          </Col>
-          <Col md="4">
-            <select
-              name="category"
-              id="category"
-              required
-              onChange={this.handleChange}
-            >
-              {category.map(category => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </Col>
-          <Col md="2">
-            <button type="submit">Submit</button>
-          </Col>
-        </Row>
-      </Formul>
+            <Col md="6">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Book title"
+                value={value}
+                onChange={this.handleChange}
+              />
+            </Col>
+            <Col md="4">
+              <select
+                name="category"
+                id="category"
+                required
+                onChange={this.handleChange}
+              >
+                {category.map(category => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </Col>
+            <Col md="2">
+              <button type="submit">Submit</button>
+            </Col>
+          </Row>
+        </Formul>
+      </Container>
     );
   }
 }
