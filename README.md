@@ -1,46 +1,59 @@
-# Bookstore
+# Bookstore App
 
-A simple and intuitive Bookstore created using react
+An app that allow users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack ( ruby on rails and react).
 
-**Bookstore** is an implementation a Bookstore made using React JS.
+On a new version it will fetch the books from goodreads.
 
-The project will be reviewed and approved by a **TSE** from [Microverse](https://microverse.org)
+## Built With
 
-## Tools used
-
-In this project we used:
-
-- HTML
-- CSS
-- JavaScript
-- JSX
-- Redux
-- ESLint
+- Javascript
+- React
+- React-redux
+- React-router
 - npm
-- Pretty
+- Ruby on Rails
+- CSS
+- Html
 
-# Author
+## Getting Started
 
-This project was created by:
+Open the [Live Demo Link](https://antonioreact-bookstore.herokuapp.com/) .
 
-- António Fernandes[Github Account https://github.com/trox115](https://github.com/trox115)
+## Author
 
-# Live Version
+👤 António Fernandes
 
-You can find the stable version of this project
-[here](https://antonioreact-Bookstore.herokuapp.com/)
+[Github](https://github.com/trox115) | [Twitter](https://twitter.com/rock_67)
 
-# License
+## 🤝 Contributing
 
-All the source code in the [The Odin Project](https://www.theodinproject.com) is available jointly under the MIT License and the Beerware License.
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the issues page.
+
+Need More Work:
+
+- Transitions.
+- Improve UI/UX
+- Add spinner for API calls
+
+## Show your support
+
+Give a star ⭐️ if you like this project!
+
+## Booking App Features
+
+To view the live demo click the [link](https://antonioreact-bookstore.herokuapp.com/) and you will fetch books from an API.
+
+![BooksCMS](documentation/images/bookstore.png)
 
 # Running Guide
 
 to get a running version of this project on your machine you have to install node and then follow the instructions, for installing Node go to the [node Oficial site https://nodejs.org/](https://nodejs.org/) and follow the installation instructions
 
 ```Shell
-your@pc:~$ git clone https://github.com/trox115/Bookstore.git
-your@pc:~$ cd Bookstore
+your@pc:~$ git clone https://github.com/trox115/bookstore.git
+your@pc:~$ cd bookstore
 your@pc:~$ npm install
 your@pc:~$ npm start
 
@@ -48,6 +61,9 @@ your@pc:~$ npm start
 
 then you are prompted to your browser to [http://localhost:3000/](http://localhost:3000/)
 
+### Warning: This will only work locally if you download the API
+
+Get it [here](https://github.com/trox115/bookstoreApi)
 
 # About This Project
 
@@ -95,3 +111,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### License
+
+This project is MIT licensed.
