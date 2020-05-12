@@ -45,7 +45,7 @@ Give a star ⭐️ if you like this project!
 
 To view the live demo click the [link](https://antonioreact-bookstore.herokuapp.com/) and you will fetch books from an API.
 
-![BooksCMS](documentation/images/bookstore.png)
+![BooksCMS](documentation/bookstore.png)
 
 # Running Guide
 
