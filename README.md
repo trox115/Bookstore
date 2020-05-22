@@ -31,16 +31,12 @@ Contributions, issues and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Future Features:
+## Future Features:
 - [ ] Implement Transitions.
 - [ ] Add a spinner for dead times in API Call.
 - [ ] Get books from goodreads.
 - [ ] Add user register.
 - [ ] Add user login.
-
-- Transitions.
-- Improve UI/UX
-- Add spinner for API calls
 
 ## Show your support
 
