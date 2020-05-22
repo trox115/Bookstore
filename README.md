@@ -23,7 +23,7 @@ Open the [Live Demo Link](https://antonioreact-bookstore.herokuapp.com/) .
 
 👤 António Fernandes
 
-[Github](https://github.com/trox115) | [Twitter](https://twitter.com/rock_67)
+[Github](https://github.com/trox115) | [Twitter](https://twitter.com/rock_67) | [LinkedIn](https://www.linkedin.com/in/antoniomfernandes/) | [Email](mailto:email@antoniofernandes.com) | [Portfolio](https://www.antoniofernandes.com/)
 
 ## 🤝 Contributing
 
@@ -31,7 +31,12 @@ Contributions, issues and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Need More Work:
+Future Features:
+- [ ] Implement Transitions.
+- [ ] Add a spinner for dead times in API Call.
+- [ ] Get books from goodreads.
+- [ ] Add user register.
+- [ ] Add user login.
 
 - Transitions.
 - Improve UI/UX
