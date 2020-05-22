@@ -1,8 +1,8 @@
 # Bookstore App
 
-An app that allow users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack ( ruby on rails and react).
+An app that allows users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack ( ruby on rails and react).
 
-On a new version it will fetch the books from goodreads.
+On a new version it will fetch the books from GoodReads.
 
 ## Built With
 
@@ -17,7 +17,7 @@ On a new version it will fetch the books from goodreads.
 
 ## Getting Started
 
-Open the [Live Demo Link](https://antonioreact-bookstore.herokuapp.com/) .
+Open the [Live Demo Link](https://antonioreact-bookstore.herokuapp.com/).
 
 ## Author
 
@@ -27,14 +27,14 @@ Open the [Live Demo Link](https://antonioreact-bookstore.herokuapp.com/) .
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
 ## Future Features:
 - [ ] Implement Transitions.
 - [ ] Add a spinner for dead times in API Call.
-- [ ] Get books from goodreads.
+- [ ] Get books from GoodReads.
 - [ ] Add user register.
 - [ ] Add user login.
 
