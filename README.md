@@ -1,12 +1,12 @@
 # Bookstore App
 
-An app that allows users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack ( ruby on rails and react).
+An app that allows users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack (Ruby on Rail and React).
 
 On a new version it will fetch the books from GoodReads.
 
 ## Built With
 
-- Javascript
+- JavaScript
 - React
 - React-redux
 - React-router
@@ -32,6 +32,7 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the issues page.
 
 ## Future Features:
+
 - [ ] Implement Transitions.
 - [ ] Add a spinner for dead times in API Call.
 - [ ] Get books from GoodReads.
