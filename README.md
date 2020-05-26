@@ -1,6 +1,6 @@
 # Bookstore App
 
-An app that allows users to add books and update their reading progress. The purpose of the entire project is to work with a full-stack (Ruby on Rail and React).
+An app that allows users to add books and update their reading progress. The purpose of the entire project is to work with a Full-Stack (Ruby on Rail and React).
 
 On a new version it will fetch the books from GoodReads.
 
