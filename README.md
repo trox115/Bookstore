@@ -13,7 +13,7 @@ On a new version it will fetch the books from GoodReads.
 - npm
 - Ruby on Rails
 - CSS
-- Html
+- HTML
 
 ## Getting Started
 
@@ -51,11 +51,11 @@ To view the live demo click the [link](https://antonioreact-bookstore.herokuapp.
 
 # Running Guide
 
-to get a running version of this project on your machine you have to install node and then follow the instructions, for installing Node go to the [node Oficial site https://nodejs.org/](https://nodejs.org/) and follow the installation instructions
+To get a running version of this project on your machine you have to install node and then follow the instructions, for installing Node go to the [node Oficial site https://nodejs.org/](https://nodejs.org/) and follow the installation instructions
 
 ```Shell
-your@pc:~$ git clone https://github.com/trox115/bookstore.git
-your@pc:~$ cd bookstore
+your@pc:~$ git clone https://github.com/trox115/Bookstore.git
+your@pc:~$ cd Bookstore
 your@pc:~$ npm install
 your@pc:~$ npm start
 
